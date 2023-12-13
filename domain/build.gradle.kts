@@ -12,6 +12,8 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-dependencies{
+dependencies {
 
+    // Coroutines
+    api(Dependencies.Coroutines.coroutines)
 }
