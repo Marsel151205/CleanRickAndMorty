@@ -4,6 +4,12 @@ plugins {
     id(Plugins.androidLibrary)
     // Kotlin Android
     id(Plugins.kotlinAndroid)
+
+    // Kapt
+    kotlin(Plugins.kapt)
+
+    // Hilt
+    id(Plugins.hilt)
 }
 
 android {
@@ -49,4 +55,24 @@ dependencies {
 
     // Domain
     implementation(project(":domain"))
+
+    // Hilt
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
+
+    // Retrofit
+    implementation(Dependencies.Retrofit.retrofit)
+
+    // OkHttp
+    implementation(Dependencies.OkHttp.okHttp)
+
+    // Gson
+    implementation(Dependencies.Gson.gson)
+
+    // Logging Interceptor
+    implementation(Dependencies.Interceptors.loggingInterceptor)
+}
+
+kapt {
+    correctErrorTypes = true
 }
