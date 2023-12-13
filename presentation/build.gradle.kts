@@ -5,6 +5,12 @@ plugins {
 
     // Kotlin Android
     id(Plugins.kotlinAndroid)
+
+    // Kapt
+    kotlin(Plugins.kapt)
+
+    // Hilt
+    id(Plugins.hilt)
 }
 
 android {
@@ -34,6 +40,9 @@ android {
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -56,4 +65,34 @@ dependencies {
 
     // Domain
     implementation(project(":domain"))
+
+    // Hilt
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
+
+    // Navigation Component
+    implementation(Dependencies.NavigationComponent.navigationFragment)
+    implementation(Dependencies.NavigationComponent.navigationUI)
+
+    // Paging3
+    implementation(Dependencies.Paging.paging3)
+
+    // Glide
+    implementation(Dependencies.Glide.glide)
+
+    // ViewBindingPropertyDelegate
+    implementation(Dependencies.ViewBinding.viewBindingPropertyDelegate)
+
+    // ViewModel
+    implementation(Dependencies.Lifecycle.viewModel)
+
+    // LiveData
+    implementation(Dependencies.Lifecycle.liveData)
+
+    // Lifecycle Runtime
+    implementation(Dependencies.Lifecycle.lifecycleRuntime)
+}
+
+kapt {
+    correctErrorTypes = true
 }
