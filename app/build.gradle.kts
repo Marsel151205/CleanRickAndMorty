@@ -5,6 +5,12 @@ plugins {
 
     // Kotlin Android
     id(Plugins.kotlinAndroid)
+
+    // Kapt
+    kotlin(Plugins.kapt)
+
+    // Hilt
+    id(Plugins.hilt)
 }
 
 android {
@@ -59,4 +65,12 @@ dependencies {
 
     // Domain
     implementation(project(":domain"))
+
+    // Hilt
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
